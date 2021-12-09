@@ -12,9 +12,12 @@ const Form = ({ currentId, setCurrentId }) => {
   const history = useHistory();
   const post = useSelector(selectPostList);
   const foundPost = (currentId ? post.find((post) => post._id === currentId) : null);
-  const user = JSON.parse(localStorage.getItem('profile'));
 
-  const [postData, setPostData] = useState({ title: '', message: '', tags: '', selectedFile: '' });
+  const postObj = {
+    title: '', message: '', tags: '', selectedFile: '',
+  }
+
+  const [postData, setPostData] = useState(postObj);
 
   useEffect(() => {
     if (foundPost) setPostData(foundPost);
@@ -22,16 +25,16 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     setCurrentId(0);
-    setPostData({ title: '', message: '', tags: '', selectedFile: '' });
+    setPostData(postObj);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (currentId === 0) {
-      dispatch(createNewPost({ ...postData, name: user?.result?.name }));
+      dispatch(createNewPost({ ...postData }));
     } else {
-      dispatch(editPost(currentId, { ...postData, name: user?.result?.name }));
+      dispatch(editPost(currentId, { ...postData }));
     }
     clear();
   };
