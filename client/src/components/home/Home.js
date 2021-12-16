@@ -17,14 +17,10 @@ const Home = () => {
     return (
         <div>
             <div>
-                <div>
-                    <div>
-                        {(user?.result?.name) ? <Form currentId={currentId} setCurrentId={setCurrentId} /> : null}
-                    </div>
-                    <div>
-                        <Posts setCurrentId={setCurrentId} />
-                    </div>
-                </div>
+                {(user?.result?.name) ? <Form currentId={currentId} setCurrentId={setCurrentId} /> : null}
+            </div>
+            <div>
+                <Posts setCurrentId={setCurrentId} />
             </div>
         </div>
     );
