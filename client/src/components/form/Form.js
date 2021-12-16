@@ -54,7 +54,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   return (
     <div className="form-container">
-      <h1 variant="h6">{currentId ? `Editing "${foundPost.title}"` : 'Add Project'}</h1>
+      <h1>{currentId ? `Editing "${foundPost.title}"` : 'Add Project'}</h1>
       <form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <div><input name="title" placeholder="Title" value={postData.title} onChange={handleChange} /></div>
         <div><input name="message" placeholder="Message" value={postData.message} onChange={handleChange} /></div>
