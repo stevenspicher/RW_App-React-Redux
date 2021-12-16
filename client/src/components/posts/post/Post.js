@@ -9,7 +9,7 @@ const Post = ({ post, setCurrentId }) => {
 
   return (
     <div className="post-container">
-      <img className="post-image" src={post.selectedFile} alt="" title={post.title} />
+      <img className="post-image" src={post.selectedFile} alt="" />
       {(user?.result) && (
         <div>
           <button onClick={() => setCurrentId(post._id)}>
