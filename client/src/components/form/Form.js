@@ -32,9 +32,9 @@ const Form = ({ currentId, setCurrentId }) => {
     e.preventDefault();
 
     if (currentId === 0) {
-      dispatch(createNewPost({ ...postData }));
+      dispatch(createNewPost(postData));
     } else {
-      dispatch(editPost(currentId, { ...postData }));
+      dispatch(editPost(currentId, postData));
     }
     clear();
   };
