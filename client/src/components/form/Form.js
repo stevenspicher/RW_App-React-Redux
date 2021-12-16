@@ -14,7 +14,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const foundPost = (currentId ? post.find((post) => post._id === currentId) : null);
 
   const postObj = {
-    title: '', message: '', tags: '', selectedFile: '',
+    title: '', message: '', selectedFile: '',
   }
 
   const [postData, setPostData] = useState(postObj);
